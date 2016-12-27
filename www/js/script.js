@@ -1,9 +1,20 @@
 $(function() {
 
+
+  function dateReceived(str) {
+    $("#speed").html(str);
+  }
+
+  function dateFailure() {
+    console.log("Error with data subscription");
+  }
+
   function connectSuccess() {
     console.log("connect success");
     $(".connected").show();
     $(".notconnected").hide();
+    bluetoothSerial.subscribe('\n', dataReceived, dataFailure);
+
   }
 
   function connectFailed() {
@@ -50,6 +61,7 @@ $(function() {
   $("#disconnect").click(function() {
     if (!!window.cordova) {
       console.log("bluetooth disconnect");
+      bluetoothSerial.unsubscribe();
       bluetoothSerial.disconnect();
     };
     $(".connected").hide();
@@ -69,6 +81,7 @@ $(function() {
   }
   function connectionsloaded(connections) {
     console.log("loading connections");
+    $("#connectionlist").html("");
     var connectionlist = $("#connectionlist");
      for (var i=0 ; i < connections.length ; ++i) {
        var connection = connections[i];
@@ -95,6 +108,7 @@ $(function() {
       $("#listconnections").click(function() {
         bluetoothSerial.list(connectionsloaded, connectionsfailure);
       });
+
     } else {
       $("#listconnections").click(function() {
         console.log("list connections clicked");
