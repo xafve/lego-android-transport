@@ -5,7 +5,7 @@ $(function() {
     $("#speed").html(str);
   }
 
-  function dateFailure() {
+  function dataFailure() {
     console.log("Error with data subscription");
   }
 
