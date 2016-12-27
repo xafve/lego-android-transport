@@ -43,6 +43,7 @@ body {
   border: 2px solid darkred;
   padding: 10px;
   margin: 10px;
+  display: none;
 }
 
 .pressed { 
