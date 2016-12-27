@@ -62,7 +62,7 @@ $(function() {
     console.log("starting connection", id);
     if (!!window.cordova) {
       console.log("bluetooth connect");
-      bluetoothSerial.connect(id, connectSuccess, connectFailure);
+      bluetoothSerial.connect(id, connectSuccess, connectFailed);
     } else {
       connectSuccess();
     }
