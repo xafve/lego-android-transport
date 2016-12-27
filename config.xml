@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Hello World</name>
+<widget id="com.github.xafve.lego-android-transport" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Lego Transport</name>
     <description>
-        A blank PhoneGap app.
+        Android bluetooth controller for adruino/lego project..
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="xavier.vanelsacker@gmail.com" href="https://github.com/xafve/lego-android-transport">
+        Xafve
     </author>
     <content src="index.html" />
     <access origin="*" />
