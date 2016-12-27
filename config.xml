@@ -7,6 +7,9 @@
     <author email="xavier.vanelsacker@gmail.com" href="https://github.com/xafve/lego-android-transport">
         Xafve
     </author>
+
+    <plugin name="cordova-plugin-bluetooth-serial" />
+
     <content src="index.html" />
     <access origin="*" />
     <engine name="android" spec="~5.1.1" />

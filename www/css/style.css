@@ -1,0 +1,35 @@
+.button { 
+  border: 1px solid black;
+  background: yellow;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+.connectionlist { 
+  min-height: 100px;
+  border: 1px solid blue;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  box-sizing: border-box;
+  background: lightblue;
+}
+
+.output { 
+  min-height: 30px;
+  border: 1px solid green;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  box-sizing: border-box;
+  background: lightgreen;
+}
+
+body { 
+  background: orange;
+ }
