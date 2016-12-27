@@ -1,6 +1,5 @@
 $(function() {
 
-
   function dataReceived(str) {
     $("#speed").html(str);
   }
@@ -9,12 +8,21 @@ $(function() {
     console.log("Error with data subscription");
   }
 
+  function send(i) {
+    if (!!window.cordova) { 
+      bluetoothSerial.write(i, writeSuccess, writeFailure);      
+    } else {
+      console.log("Command", i);
+      writeSuccess();
+    };   
+  }
+
   function connectSuccess() {
     console.log("connect success");
     $(".connected").show();
     $(".notconnected").hide();
     bluetoothSerial.subscribe('\n', dataReceived, dataFailure);
-
+    send('5');
   }
 
   function connectFailed() {
@@ -31,15 +39,6 @@ $(function() {
 
   function writeFailure() {
     console.log("Write failure");
-  }
-
-  function send(i) {
-    if (!!window.cordova) { 
-      bluetoothSerial.write(i, writeSuccess, writeFailure);      
-    } else {
-      console.log("Command", i);
-      writeSuccess();
-    };   
   }
 
   $("#stop").click(function() {
@@ -87,6 +86,7 @@ $(function() {
        var connection = connections[i];
        console.log("Adding connection:", connection.name);
        $(document.createElement("div"))
+         .addClass("connection")
          .html(connection.name)
          .attr("uid", connection.address)
          .appendTo(connectionlist)
@@ -102,6 +102,16 @@ $(function() {
     alert("could not get list");
   }
 
+  function enableButtonPressFeedback(selector) {
+    $(document).on("touchstart mousedown", selector, function () {
+      $(this).addClass("pressed");
+    });
+    $(document).on("touchend touchcancel mouseout mouseup", selector, function () {
+      $(this).removeClass("pressed");
+    });
+  }
+
+  enableButtonPressFeedback();
   function initialize() {
     console.log("initializing");
     if (!!window.cordova) {
@@ -116,15 +126,18 @@ $(function() {
           "class": 276,
           "id": "10:BF:48:CB:00:00",
           "address": "10:BF:48:CB:00:00",
-          "name": "Nexus 7"
+          "name": "fake-connection-1"
         }, {
           "class": 7936,
           "id": "00:06:66:4D:00:00",
           "address": "00:06:66:4D:00:00",
-          "name": "RN42"
+          "name": "fake-connection-2"
         }]);
+        $(".testmode").show();
       });
     }
+
+    enableButtonPressFeedback(".button, .connection");
   }
 
   initialize();

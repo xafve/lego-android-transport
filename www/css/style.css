@@ -1,40 +1,50 @@
 .button { 
   border: 1px solid black;
   background: yellow;
-  width: 100%;
   text-align: center;
   padding: 5px;
-  margin: 5px;
-  box-sizing: border-box;
+  margin: 10px;
 }
 
 .connectionlist { 
   min-height: 100px;
   border: 1px solid blue;
-  width: 100%;
   text-align: center;
   padding: 5px;
-  margin: 5px;
-  box-sizing: border-box;
   background: lightblue;
+  margin: 10px;
 }
 
 .output { 
   min-height: 30px;
   border: 1px solid green;
-  width: 100%;
   text-align: center;
   padding: 5px;
-  margin: 5px;
-  box-sizing: border-box;
   background: lightgreen;
+  margin: 10px;
 }
 
 body { 
   background: orange;
- }
+  font-family: verdana;
+  font-size: 18px;
+  font-weight: bold;
+}
 
 .connected { 
   display: none;
 }
 
+.testmode { 
+  font-size: 15px;
+  font-weight: bold;
+  color: red;
+  background: white;
+  border: 2px solid darkred;
+  padding: 10px;
+  margin: 10px;
+}
+
+.pressed { 
+  opacity: 0.5;
+}
