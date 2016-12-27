@@ -1,7 +1,7 @@
 $(function() {
 
 
-  function dateReceived(str) {
+  function dataReceived(str) {
     $("#speed").html(str);
   }
 
