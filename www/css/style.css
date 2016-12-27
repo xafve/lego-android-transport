@@ -33,3 +33,8 @@
 body { 
   background: orange;
  }
+
+.connected { 
+  display: none;
+}
+
