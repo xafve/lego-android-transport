@@ -1,11 +1,13 @@
 $(function() {
 
   function connectSuccess() {
+    console.log("connect success");
     $(".connected").show();
     $(".notconnected").hide();
   }
 
   function connectFailed() {
+    console.log("bluetooth connect failed");
     alert("connect failed");
   }
 
@@ -22,7 +24,7 @@ $(function() {
 
   function send(i) {
     if (!!window.cordova) { 
-      bluetoothSerial.write(i, writSuccess, writeFailure);      
+      bluetoothSerial.write(i, writeSuccess, writeFailure);      
     } else {
       console.log("Command", i);
       writeSuccess();
@@ -47,6 +49,7 @@ $(function() {
 
   $("#disconnect").click(function() {
     if (!!window.cordova) {
+      console.log("bluetooth disconnect");
       bluetoothSerial.disconnect();
     };
     $(".connected").hide();
@@ -58,7 +61,8 @@ $(function() {
   function startConnection(id) {
     console.log("starting connection", id);
     if (!!window.cordova) {
-      bluetoothSerial.connect(macAddress_or_uuid, connectSuccess, connectFailure);
+      console.log("bluetooth connect");
+      bluetoothSerial.connect(id, connectSuccess, connectFailure);
     } else {
       connectSuccess();
     }
